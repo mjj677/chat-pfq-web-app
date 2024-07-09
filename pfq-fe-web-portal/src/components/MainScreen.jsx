@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import { getRequest } from "../../../../pfq-fe-native/src/utils/api";
+import { getRequest } from "../utils/api.js";
 import { MessageView } from "../Views/MessageView";
 import { PreviewsView } from "../Views/PreviewsView";
 import { CategoryButtons } from "./CategoryButtons";

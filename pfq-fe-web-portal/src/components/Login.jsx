@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { exec } from "../../../../pfq-fe-native/src/utils/encryption";
-import { getRequest } from "../../../../pfq-fe-native/src/utils/api";
+import { exec } from "../utils/encryption.js";
+import { getRequest } from "../utils/api.js";
 import './Login-styles.css'
 import usernameIcon from "/username-icon.png"
 import passwordIcon from "/password-icon.png"
