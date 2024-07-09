@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { getRequest } from "../utils/api.js";
-import { MessageView } from "../Views/MessageView";
-import { PreviewsView } from "../Views/PreviewsView";
-import { CategoryButtons } from "./CategoryButtons";
-import { Sidebar } from "./Sidebar";
-import { NoMessageView } from "./NoMessageView";
+import { MessageView } from "../Views/MessageView.jsx";
+import { PreviewsView } from "../Views/PreviewsView.jsx";
+import { CategoryButtons } from "./CategoryButtons.jsx";
+import { Sidebar } from "./Sidebar.jsx";
+import { NoMessageView } from "./NoMessageView.jsx";
 
 export const MainScreen = ({ username, setUsername, socket }) => {
   const [AllMessages, setAllMessages] = useState([]);
