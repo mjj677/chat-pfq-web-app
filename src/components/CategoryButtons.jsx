@@ -15,6 +15,7 @@ export const CategoryButtons = ({
         onClick={handleClick}
         value={"All"}
         variant={category === "All" ? "contained" : "outlined"}
+        className="category-button"
         sx={{
           margin: "5px",
           padding: "5px",
@@ -31,6 +32,7 @@ export const CategoryButtons = ({
             <Skeleton
               key={index}
               variant="rectangular"
+              className ="category-button"
               sx={{
                 margin: "5px",
                 padding: "5px",
@@ -49,12 +51,13 @@ export const CategoryButtons = ({
               variant={category === categoryItem ? "contained" : "outlined"}
               onClick={handleClick}
               value={categoryItem}
+              className="category-button"
               sx={{
                 margin: "5px",
                 padding: "5px",
                 color: category === categoryItem ? theme.palette.primary.contrastText : theme.palette.text.primary,
                 backgroundColor: category === categoryItem ? theme.palette.primary.main : theme.palette.background.paper,
-                borderRadius: "15px",
+                borderRadius: "15px"
               }}
             >
               {categoryItem}

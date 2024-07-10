@@ -22,12 +22,13 @@ export const Sidebar = ({ setUsername }) => {
       </div>
       <div style={{ flexGrow: 1 }}></div>
       <div>
-      <button onClick={toggleTheme}>
         <img
-          src={darkMode? "/moon.svg" : "/sun.svg" }
+        onClick={toggleTheme}
+          src={darkMode? "/sun-icon.png" : "/moon-icon.png" }
           className="theme-toggle-button"
+
         />
-        </button>
+
       </div>
       <div>
         <button onClick={handleLogout} className="animated-button">
