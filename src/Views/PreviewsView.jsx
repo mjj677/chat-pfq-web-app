@@ -91,9 +91,3 @@ export function PreviewsView({
   );
 }
 
-{
-  /* <SentimentNeutralRoundedIcon
-sx={{ fontSize: 46, cursor: "pointer" }}
-onClick={() => handleClick("neutral")}
-/> */
-}
