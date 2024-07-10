@@ -15,6 +15,20 @@
   height: 100vh;
 }
 
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .parent {
+  background-color: #121212;
+}
+
+.dark-mode #column-1,
+.dark-mode #column-2 {
+  background-color: #1e1e1e;
+}
+
 #column-1 {
   background-color: rgb(160, 160, 160);
   border: solid 2px red;
@@ -225,4 +239,9 @@
   transition: transform 1s ease-in-out;
   margin-left: 10px;
   margin-bottom: 5px;
+}
+
+.theme-toggle-button{
+  height: 100px;
+  width: 100px;
 }

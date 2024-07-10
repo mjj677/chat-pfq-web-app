@@ -6,6 +6,7 @@ import { PreviewsView } from "../Views/PreviewsView.jsx";
 import { CategoryButtons } from "./CategoryButtons.jsx";
 import { Sidebar } from "./Sidebar.jsx";
 import { NoMessageView } from "./NoMessageView.jsx";
+import { useTheme } from "../ThemeContext.jsx";
 
 export const MainScreen = ({ username, setUsername, socket }) => {
   const [AllMessages, setAllMessages] = useState([]);
@@ -16,6 +17,7 @@ export const MainScreen = ({ username, setUsername, socket }) => {
   const [nonAdminMessages, setNonAdminMessages] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     const getMessageThread = async () => {
@@ -87,6 +89,7 @@ export const MainScreen = ({ username, setUsername, socket }) => {
       setBody("");
     }
   };
+
   useEffect(() => {
     let categoryList = AllMessages.reduce((acc, message) => {
       if (message.category) {
@@ -101,7 +104,7 @@ export const MainScreen = ({ username, setUsername, socket }) => {
   }, [AllMessages]);
 
   return (
-    <div className="parent">
+    <div className={`parent ${darkMode ? "dark-mode" : ""}`}>
       <div id="column-1">
         <Sidebar setUsername={setUsername} />
       </div>
@@ -134,5 +137,3 @@ export const MainScreen = ({ username, setUsername, socket }) => {
     </div>
   );
 };
-
-//a
