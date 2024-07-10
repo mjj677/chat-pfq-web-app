@@ -7,6 +7,16 @@
   margin-bottom: 50px;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.main-container {
+  padding-top: 20px;
+}
+
 .parent {
   display: grid;
   grid-template-columns: 75px 1fr 1.5fr 3fr;
@@ -36,7 +46,7 @@
 #column-1 {
   background-color: rgb(160, 160, 160);
   height: 100vh;
-  padding: 1vh 0.25vw 1vh 0.25vw
+  padding: 1vh 0.25vw 1vh 0.25vw;
 }
 
 #column-2 {
@@ -64,28 +74,28 @@
   scrollbar-color: pink;
 }
 
-#column-3::-webkit-scrollbar{
+#column-3::-webkit-scrollbar {
   width: 10px;
   background-color: #ffffff;
   border-radius: 5px;
 }
 
-.dark-mode #column-3::-webkit-scrollbar{
+.dark-mode #column-3::-webkit-scrollbar {
   width: 10px;
   background-color: #1e1e1e;
   border-radius: 5px;
 }
 
-#column-3::-webkit-scrollbar-thumb{
+#column-3::-webkit-scrollbar-thumb {
   width: 10px;
   background-color: #21409a;
   border-radius: 5px;
-} 
+}
 
 #column-4 {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 99vh;
 }
 
 #avatar-container {
@@ -138,23 +148,23 @@
   padding: 1vh 1vw;
 }
 
-#message-thread::-webkit-scrollbar{
+#message-thread::-webkit-scrollbar {
   width: 10px;
   background-color: #ffffff;
   border-radius: 5px;
 }
 
-.dark-mode #message-thread::-webkit-scrollbar{
+.dark-mode #message-thread::-webkit-scrollbar {
   width: 10px;
   background-color: #1e1e1e;
   border-radius: 5px;
 }
 
-#message-thread::-webkit-scrollbar-thumb{
+#message-thread::-webkit-scrollbar-thumb {
   width: 10px;
   background-color: #21409a;
   border-radius: 5px;
-} 
+}
 
 #bubble {
   display: grid;
@@ -233,6 +243,8 @@
   padding: 0.5vh 1.5vw 0.5vh 1.5vw;
   height: 7vh;
   transition: background-color ease-out 100ms;
+  overflow: hidden;
+
 }
 
 #preview-container:hover {
@@ -281,7 +293,7 @@
   margin-bottom: 15px;
 }
 
-.theme-toggle-button{
+.theme-toggle-button {
   height: 50px;
   width: 50px;
   padding: 10px;
@@ -295,7 +307,6 @@
   height: 100%;
   background-color: #111111;
   border-radius: 10px;
-
 }
 
 .shared-button {
@@ -321,13 +332,11 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
 .category-button-light {
   background-color: white;
   color: black;
   border: 1px solid #ccc;
 }
-
 
 .dark-mode .category-button {
   background-color: #333;
@@ -344,4 +353,3 @@
   color: white;
   border: 1px solid #555;
 }
-
