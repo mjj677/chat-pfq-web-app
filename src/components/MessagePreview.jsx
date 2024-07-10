@@ -2,12 +2,15 @@ import * as React from "react";
 import { Avatar } from "@mui/material";
 import { timeSince } from "../utils/TimeAgo";
 
-export const MessagePreview = ({ msg, category, setTalkingTo }) => {
+export const MessagePreview = ({ msg, category, setTalkingTo, sentiment }) => {
   const handleClick = (from) => {
     setTalkingTo(from);
   };
 
-  if (msg.category === category || category === "All") {
+  if (
+    (msg.category === category || category === "All") &&
+    (msg.sentiment === sentiment || sentiment === "neutral")
+  ) {
     return (
       <div id="preview-container" onClick={() => handleClick(msg.from)}>
         <div id="preview-avatar">
