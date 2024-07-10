@@ -1,15 +1,8 @@
 import * as React from "react";
-import {
-  Card,
-  CardContent,
-  Typography,
-  CardActionArea,
-  Skeleton,
-  Avatar,
-} from "@mui/material";
+import { Avatar } from "@mui/material";
 import { timeSince } from "../utils/TimeAgo";
 
-export const MessagePreview = ({ msg, category, setTalkingTo, talkingTo }) => {
+export const MessagePreview = ({ msg, category, setTalkingTo }) => {
   const handleClick = (from) => {
     setTalkingTo(from);
   };
