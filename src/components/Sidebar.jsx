@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTheme } from "../ThemeContext";
-mpm 
+
 
 export const Sidebar = ({ setUsername }) => {
   const [isHovered, setIsHovered] = useState(false);
