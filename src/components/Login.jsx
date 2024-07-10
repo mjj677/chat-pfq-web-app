@@ -4,6 +4,7 @@ import { getRequest } from "../utils/api.js";
 import './Login-styles.css'
 import usernameIcon from "/username-icon.png"
 import passwordIcon from "/password-icon.png"
+import logo from "/logo.png"
 
 
 export const Login = ({ setUsername }) => {
@@ -85,7 +86,7 @@ export const Login = ({ setUsername }) => {
     <div className='login'>
     <div className='login-container'>
     {message && <p className='login-message'>{message}</p>}
-    <img src='../public/logo.png' id="logo"/>
+    <img src={logo} id="logo"/>
     
       <form onSubmit={handleLogin}>
         <div className="username-input-wrapper">
