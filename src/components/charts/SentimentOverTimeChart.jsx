@@ -20,5 +20,16 @@ export const SentimentOverTimeChart = ({ data }) => {
     ],
   };
 
-  return <Line data={chartData} />;
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        position: "top",
+      },
+    },
+  };
+
+  return <Line data={chartData} options={options}/>;
 };

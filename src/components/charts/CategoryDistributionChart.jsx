@@ -25,20 +25,28 @@ export const CategoryDistributionChart = ({ messages }) => {
       {
         data: data,
         backgroundColor: [
-          "red",
-          "blue",
-          "green",
-          "yellow",
-          "purple",
-          "pink",
-          "orange",
-          "turqouise",
-          "black",
-          "gray",
+          "#21409A",
+          "#7DA9C2",
+          "#2CA69A",
+          "#BC3C8A",
+          "#CD424D",
+          "#ED5A45"
         ],
       },
     ],
   };
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        position: "top",
+      },
+    },
+  }
 
-  return <Pie data={chartData} />;
+  return <div id='pie-chart'>
+    <Pie data={chartData} options={options}/>
+  </div>
 };

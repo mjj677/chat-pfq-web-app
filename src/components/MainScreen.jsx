@@ -7,6 +7,7 @@ import { CategoryButtons } from "./CategoryButtons.jsx";
 import { Sidebar } from "./Sidebar.jsx";
 import { NoMessageView } from "./NoMessageView.jsx";
 import { MetricsDashboard } from "./MetricsDashboard.jsx";
+import { useTheme } from "../ThemeContext.jsx";
 
 export const MainScreen = ({ username, setUsername, socket }) => {
   const [AllMessages, setAllMessages] = useState([]);
@@ -20,6 +21,7 @@ export const MainScreen = ({ username, setUsername, socket }) => {
   const [allCategories, setAllCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showDashboard, setShowDashboard] = useState(false);
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     const getMessageThread = async () => {
@@ -107,6 +109,7 @@ export const MainScreen = ({ username, setUsername, socket }) => {
       setBody("");
     }
   };
+
   useEffect(() => {
     let categoryList = AllMessages.reduce((acc, message) => {
       if (message.category) {
@@ -120,8 +123,9 @@ export const MainScreen = ({ username, setUsername, socket }) => {
     setAllCategories(Object.keys(categoryList));
   }, [AllMessages]);
 
+
   return (
-    <div className="parent">
+    <div className={`parent ${darkMode ? "dark-mode" : ""}`}>
       <div id="column-1">
         <Sidebar
           setUsername={setUsername}
@@ -164,3 +168,50 @@ export const MainScreen = ({ username, setUsername, socket }) => {
     </div>
   );
 };
+
+
+/*
+
+ <div className={`parent ${darkMode ? "dark-mode" : ""}`}>
+      <div id="column-1">
+        <Sidebar
+          setUsername={setUsername}
+          showDashboard={showDashboard}
+          setShowDashboard={setShowDashboard}
+        />
+      </div>
+      {!showDashboard ? (
+        <>
+          <div id="column-2">
+            <CategoryButtons
+              handleClick={handleClick}
+              category={category}
+              allCategories={allCategories}
+              loading={loading}
+            />
+          </div>
+          <PreviewsView
+            nonAdminMessages={nonAdminMessages}
+            setTalkingTo={setTalkingTo}
+            category={category}
+            talkingTo={talkingTo}
+            loading={loading}
+          />
+          {talkingTo !== "" ? (
+            <MessageView
+              talkingTo={talkingTo}
+              body={body}
+              sendMessage={sendMessage}
+              conversationMessages={conversationMessages}
+              setBody={setBody}
+            />
+          ) : (
+            <NoMessageView />
+          )}
+        </>
+      ) : (
+        <MetricsDashboard allMessages={everyMessage} totalUsers={totalUsers} />
+      )}
+    </div>
+
+    */

@@ -1,4 +1,4 @@
-import { Button, Skeleton, Box } from "@mui/material";
+import { Button, Skeleton, Box, useTheme } from "@mui/material";
 
 export const CategoryButtons = ({
   handleClick,
@@ -6,7 +6,8 @@ export const CategoryButtons = ({
   allCategories,
   loading,
 }) => {
-  const skeletonCount = 14; // Adjust this number to the desired number of skeletons
+  const theme = useTheme();
+  const skeletonCount = 14;
 
   return (
     <>
@@ -14,11 +15,12 @@ export const CategoryButtons = ({
         onClick={handleClick}
         value={"All"}
         variant={category === "All" ? "contained" : "outlined"}
+        className="category-button"
         sx={{
           margin: "5px",
           padding: "5px",
-          color: category === "All" ? "white" : "black",
-          backgroundColor: category === "All" ? "#21409a" : "white",
+          color: category === "All" ? theme.palette.primary.contrastText : theme.palette.text.primary,
+          backgroundColor: category === "All" ? theme.palette.primary.main : theme.palette.background.paper,
           borderRadius: "15px",
         }}
       >
@@ -30,6 +32,7 @@ export const CategoryButtons = ({
             <Skeleton
               key={index}
               variant="rectangular"
+              className ="category-button"
               sx={{
                 margin: "5px",
                 padding: "5px",
@@ -48,13 +51,13 @@ export const CategoryButtons = ({
               variant={category === categoryItem ? "contained" : "outlined"}
               onClick={handleClick}
               value={categoryItem}
+              className="category-button"
               sx={{
                 margin: "5px",
                 padding: "5px",
-                color: category === categoryItem ? "white" : "black",
-                backgroundColor:
-                  category === categoryItem ? "#21409a" : "white",
-                borderRadius: "15px",
+                color: category === categoryItem ? theme.palette.primary.contrastText : theme.palette.text.primary,
+                backgroundColor: category === categoryItem ? theme.palette.primary.main : theme.palette.background.paper,
+                borderRadius: "15px"
               }}
             >
               {categoryItem}

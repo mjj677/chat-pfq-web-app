@@ -1,10 +1,18 @@
 import { useState } from "react";
+import { useTheme } from "../ThemeContext";
+
 
 export const Sidebar = ({ setUsername, showDashboard, setShowDashboard }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { darkMode, setDarkMode } = useTheme();
+
 
   const handleLogout = (e) => {
     setUsername("");
+  };
+
+  const toggleTheme = () => {
+    setDarkMode((prevMode) => !prevMode);
   };
 
   return (
@@ -28,6 +36,15 @@ export const Sidebar = ({ setUsername, showDashboard, setShowDashboard }) => {
         />
       </div>
       <div style={{ flexGrow: 1 }}></div>
+      <div id='dark-mode-button-container'>
+        <img
+        onClick={toggleTheme}
+          src={darkMode? "/sun-icon.png" : "/moon-icon.png" }
+          className="theme-toggle-button"
+
+        />
+
+      </div>
       <div>
         <button onClick={handleLogout} className="animated-button">
           <img

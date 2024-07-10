@@ -1,57 +1,92 @@
+.chart {
+  box-sizing: border-box;
+  /* box-shadow: -5px 5px 2px -1px rgba(0, 0, 0, 0.175); */
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 1vh 1vw;
+}
 
-.dashboard-container {
-    padding: 20px;
-    /* width: 90vw; */
-  }
-  
-  .charts-container {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-  }
-  
-  .top-row,
-  .bottom-row {
-    display: flex;
-    gap: 10px;
-    border: 1px solid black;
-    align-items: stretch;
-    flex: 1;
-  }
+.chart canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
 
-  .top-row {
-    flex-direction: row;
-  }
-  
-  .chart-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
+#metrics-container {
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 10% 90%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 95vw;
+  height:100vh;
 
-  .total-users-text {
-    position: relative;
-    left: 125px;
-    bottom: 155px;
-  }
+}
 
-  .sentiment-category {
-    margin-bottom: 120px;
-    margin-left: 20px;
-    margin-top: 20px;
-  }
-  
-  .grow {
-    width: 100%;
-  }
+#pie-chart {
+  width: 100%;
+  height: 100%
+}
 
-  .left {
-    margin-right: 75px;
-  }
 
-  #flowchart {
-    height: 90vh;
-    position: absolute;
-    right: 0;
-    margin-right: 250px;
-  }
+#metrics-header {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  border-bottom: 1px solid lightgrey;
+}
+
+#metrics-header h1 {
+  padding: 2vh 0 0 20px;
+  margin: 0;
+}
+
+#metrics-header h4 {
+  margin: 0;
+  padding-left: 20px;
+}
+
+#metrics-grid {
+  grid-area: 2 / 1 / 3 / 2; 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 225px);
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  height: 100vh;
+  width: 95vw;
+  box-sizing: border-box;
+  padding: 25px;
+}
+
+#category-distribution {
+  grid-area: 1 / 1 / 3 / 3;
+}
+
+#feedback-prompt {
+  grid-area: 3 / 1 / 4 / 3;
+}
+
+#sentiment-by-category {
+  grid-area: 1 / 3 / 2 / 5;
+}
+
+#sentiment-over-time {
+  grid-area: 2 / 3 / 3 / 5;
+}
+
+#message-volume {
+  grid-area: 3 / 3 / 4 / 5;
+}
+
+#feedback-prompt {
+  background-color: rgba(192, 149, 232, 0.431);
+  border-radius: 25px;
+  padding: 0vh 3vh;
+  align-content: center;
+}
+
+#feedback-prompt h3 {
+  font-weight: 320;
+}

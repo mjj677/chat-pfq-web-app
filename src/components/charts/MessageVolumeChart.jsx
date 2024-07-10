@@ -33,7 +33,7 @@ export const MessageVolumeChart = ({ data }) => {
       },
     },
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
   };
 
   return <Bar data={chartData} options={options} />;

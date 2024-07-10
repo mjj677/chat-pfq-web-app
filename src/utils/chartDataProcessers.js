@@ -33,7 +33,6 @@ export const processSentimentByCategory = (messages) => {
       if (!sentimentByCategory[message.category]) {
         sentimentByCategory[message.category] = {
           positive: 0,
-          neutral: 0,
           negative: 0,
         };
       }

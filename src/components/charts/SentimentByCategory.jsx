@@ -22,5 +22,16 @@ export const SentimentByCategoryChart = ({ data }) => {
     ],
   };
 
-  return <Bar data={chartData} />;
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        position: "top",
+      },
+    },
+  };
+
+  return <Bar data={chartData} options={options}/>;
 };
