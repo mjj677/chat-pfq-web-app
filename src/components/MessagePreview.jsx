@@ -3,7 +3,8 @@ import { Avatar } from "@mui/material";
 import { timeSince } from "../utils/TimeAgo";
 import { useEffect, useRef } from "react";
 
-export const MessagePreview = ({ msg, category, setTalkingTo, talkingTo }) => {
+
+export const MessagePreview = ({ msg, category, setTalkingTo, talkingTo, sentiment }) => {
   const messageEndRef = useRef(null);
 
   useEffect(() => {
@@ -16,7 +17,10 @@ export const MessagePreview = ({ msg, category, setTalkingTo, talkingTo }) => {
     setTalkingTo(from);
   };
 
-  if (msg.category === category || category === "All") {
+  if (
+    (msg.category === category || category === "All") &&
+    (msg.sentiment === sentiment || sentiment === "neutral")
+  ) {
     return (
       <div id="preview-container" onClick={() => handleClick(msg.from)}>
         <div id="preview-avatar">
