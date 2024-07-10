@@ -6,9 +6,12 @@ import { PreviewsView } from "../Views/PreviewsView.jsx";
 import { CategoryButtons } from "./CategoryButtons.jsx";
 import { Sidebar } from "./Sidebar.jsx";
 import { NoMessageView } from "./NoMessageView.jsx";
+import { MetricsDashboard } from "./MetricsDashboard.jsx";
 
 export const MainScreen = ({ username, setUsername, socket }) => {
   const [AllMessages, setAllMessages] = useState([]);
+  const [everyMessage, setEveryMessage] = useState([]);
+  const [totalUsers, setTotalUsers] = useState([]);
   const [conversationMessages, setConversationMessages] = useState([]);
   const [category, setCategory] = useState("All");
   const [talkingTo, setTalkingTo] = useState("");
@@ -16,11 +19,13 @@ export const MainScreen = ({ username, setUsername, socket }) => {
   const [nonAdminMessages, setNonAdminMessages] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showDashboard, setShowDashboard] = useState(false);
 
   useEffect(() => {
     const getMessageThread = async () => {
       try {
         const messages = await getRequest("messages");
+        setEveryMessage(messages);
         const updatedMessages = messages.map((message) => {
           if (message.from === username.toLowerCase()) {
             message.sender = true;
@@ -38,6 +43,21 @@ export const MainScreen = ({ username, setUsername, socket }) => {
     };
 
     getMessageThread();
+  }, []);
+
+  useEffect(() => {
+    const getAllUsers = async () => {
+      try {
+        const users = await getRequest("users");
+        console.log(users, "<<<<< USERS");
+        setTotalUsers(users.length);
+      } catch (err) {
+        console.log("Error:", err);
+        throw err;
+      }
+    };
+
+    getAllUsers();
   }, []);
 
   useEffect(() => {
@@ -103,36 +123,44 @@ export const MainScreen = ({ username, setUsername, socket }) => {
   return (
     <div className="parent">
       <div id="column-1">
-        <Sidebar setUsername={setUsername} />
-      </div>
-      <div id="column-2">
-        <CategoryButtons
-          handleClick={handleClick}
-          category={category}
-          allCategories={allCategories}
-          loading={loading}
+        <Sidebar
+          setUsername={setUsername}
+          showDashboard={showDashboard}
+          setShowDashboard={setShowDashboard}
         />
       </div>
-      <PreviewsView
-        nonAdminMessages={nonAdminMessages}
-        setTalkingTo={setTalkingTo}
-        category={category}
-        talkingTo={talkingTo}
-        loading={loading}
-      />
-      {talkingTo !== "" ? (
-        <MessageView
-          talkingTo={talkingTo}
-          body={body}
-          sendMessage={sendMessage}
-          conversationMessages={conversationMessages}
-          setBody={setBody}
-        />
+      {!showDashboard ? (
+        <>
+          <div id="column-2">
+            <CategoryButtons
+              handleClick={handleClick}
+              category={category}
+              allCategories={allCategories}
+              loading={loading}
+            />
+          </div>
+          <PreviewsView
+            nonAdminMessages={nonAdminMessages}
+            setTalkingTo={setTalkingTo}
+            category={category}
+            talkingTo={talkingTo}
+            loading={loading}
+          />
+          {talkingTo !== "" ? (
+            <MessageView
+              talkingTo={talkingTo}
+              body={body}
+              sendMessage={sendMessage}
+              conversationMessages={conversationMessages}
+              setBody={setBody}
+            />
+          ) : (
+            <NoMessageView />
+          )}
+        </>
       ) : (
-        <NoMessageView />
+        <MetricsDashboard allMessages={everyMessage} totalUsers={totalUsers} />
       )}
     </div>
   );
 };
-
-//a

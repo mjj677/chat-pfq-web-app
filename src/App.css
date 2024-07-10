@@ -219,10 +219,27 @@
   cursor: pointer;
 }
 
+.chart-item:hover {
+  cursor: pointer;
+}
+
 .button-image {
   width: 50px;
   height: 50px;
   transition: transform 1s ease-in-out;
   margin-left: 10px;
   margin-bottom: 15px;
+}
+
+.dashboard-button {
+  width: 50px;
+  height: 50px;
+  margin-left: 8px;
+  margin-top: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-button:hover {
+  cursor: pointer;
+  transform: scale(1.1)
 }

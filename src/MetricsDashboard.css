@@ -1,0 +1,57 @@
+
+.dashboard-container {
+    padding: 20px;
+    /* width: 90vw; */
+  }
+  
+  .charts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .top-row,
+  .bottom-row {
+    display: flex;
+    gap: 10px;
+    border: 1px solid black;
+    align-items: stretch;
+    flex: 1;
+  }
+
+  .top-row {
+    flex-direction: row;
+  }
+  
+  .chart-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .total-users-text {
+    position: relative;
+    left: 125px;
+    bottom: 155px;
+  }
+
+  .sentiment-category {
+    margin-bottom: 120px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  
+  .grow {
+    width: 100%;
+  }
+
+  .left {
+    margin-right: 75px;
+  }
+
+  #flowchart {
+    height: 90vh;
+    position: absolute;
+    right: 0;
+    margin-right: 250px;
+  }
