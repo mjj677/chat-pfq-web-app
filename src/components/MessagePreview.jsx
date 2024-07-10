@@ -1,8 +1,18 @@
 import * as React from "react";
 import { Avatar } from "@mui/material";
 import { timeSince } from "../utils/TimeAgo";
+import { useEffect, useRef } from "react";
 
-export const MessagePreview = ({ msg, category, setTalkingTo, sentiment }) => {
+
+export const MessagePreview = ({ msg, category, setTalkingTo, talkingTo, sentiment }) => {
+  const messageEndRef = useRef(null);
+
+  useEffect(() => {
+    if (messageEndRef.current) {
+      messageEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [msg]); 
+
   const handleClick = (from) => {
     setTalkingTo(from);
   };
@@ -30,6 +40,7 @@ export const MessagePreview = ({ msg, category, setTalkingTo, sentiment }) => {
         <div id="message-preview-timestamp">
           <p>{timeSince(msg.created_at)}</p>
         </div>
+        <div ref={messageEndRef} />
       </div>
     );
   }
