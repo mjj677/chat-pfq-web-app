@@ -31,7 +31,7 @@ export function PreviewsView({
   }
 
   return (
-    <div id="column-3" style={{ overflow: "scroll" }}>
+    <div id="column-3">
       {nonAdminMessages.map((msg) => (
         <MessagePreview
           key={msg.created_at}

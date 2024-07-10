@@ -8,6 +8,8 @@ import { green } from "@mui/material/colors";
 
 const socket = io("https://chat-pfq-server.onrender.com");
 
+function App() {
+  const [username, setUsername] = useState("");
 const theme = createTheme({
   palette: {
     primary: {
@@ -34,8 +36,6 @@ const theme = createTheme({
   },
 });
 
-function App() {
-  const [username, setUsername] = useState("");
   return (
     <ThemeProvider theme={theme}>
 

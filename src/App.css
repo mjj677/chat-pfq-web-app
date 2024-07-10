@@ -1,5 +1,6 @@
 * {
   font-family: Helvetica, Arial, sans-serif;
+  scrollbar-width: 10px;
 }
 
 .admin-message {
@@ -13,6 +14,23 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 100vh;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .parent {
+  background-color: #121212;
+}
+
+.dark-mode #column-1 {
+  background-color: #111111;
+}
+
+.dark-mode #column-2 {
+  background-color: #1e1e1e;
 }
 
 #column-1 {
@@ -41,7 +59,29 @@
 
 #column-3 {
   height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: 4px;
+  scrollbar-color: pink;
 }
+
+#column-3::-webkit-scrollbar{
+  width: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.dark-mode #column-3::-webkit-scrollbar{
+  width: 10px;
+  background-color: #1e1e1e;
+  border-radius: 5px;
+}
+
+#column-3::-webkit-scrollbar-thumb{
+  width: 10px;
+  background-color: #21409a;
+  border-radius: 5px;
+} 
+
 #column-4 {
   display: flex;
   flex-direction: column;
@@ -94,9 +134,27 @@
 
 #message-thread {
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
   padding: 1vh 1vw;
 }
+
+#message-thread::-webkit-scrollbar{
+  width: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.dark-mode #message-thread::-webkit-scrollbar{
+  width: 10px;
+  background-color: #1e1e1e;
+  border-radius: 5px;
+}
+
+#message-thread::-webkit-scrollbar-thumb{
+  width: 10px;
+  background-color: #21409a;
+  border-radius: 5px;
+} 
 
 #bubble {
   display: grid;
@@ -222,3 +280,68 @@
   margin-left: 10px;
   margin-bottom: 15px;
 }
+
+.theme-toggle-button{
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+}
+
+.dark-mode .no-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #111111;
+  border-radius: 10px;
+
+}
+
+.shared-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s ease-in-out;
+}
+
+.theme-toggle-button {
+  width: 50px;
+  height: 50px;
+}
+
+.category-button {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.category-button-light {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+}
+
+
+.dark-mode .category-button {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+/* .dark-mode * {
+  scrollbar-color: #555 #1e1e1e;
+} */
+
+.dark-mode #message-composer input {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
