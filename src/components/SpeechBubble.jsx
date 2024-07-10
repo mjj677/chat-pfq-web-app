@@ -41,6 +41,9 @@ export function SpeechBubble({ userType, msg }) {
             null
           )}
           <div id="timestamp-container">
+            {msg.table && (
+             <p className="bubble-info">Table: {msg.table}</p>
+             )}
             {msg.created_at ? (
               <p className="bubble-info">{timeSince(msg.created_at)}</p>
             ) : (
