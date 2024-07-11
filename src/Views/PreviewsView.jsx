@@ -48,12 +48,6 @@ export function PreviewsView({
     <div id="column-3" style={{ position: "relative" }}>
       <div
         id="sentiment-filter"
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 1000,
-          backgroundColor: "white",
-        }}
       >
         <SentimentSatisfiedRoundedIcon
           sx={{

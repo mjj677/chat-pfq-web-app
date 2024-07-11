@@ -63,8 +63,8 @@
   overflow-y: scroll;
   scrollbar-width: 4px;
   scrollbar-color: pink;
+  padding-left: 5px;
 }
-
 #column-3::-webkit-scrollbar{
   width: 10px;
   background-color: #ffffff;
@@ -91,6 +91,7 @@
 
 #avatar-container {
   padding: 1vh 1vw 1vh 1vw;
+  border-bottom: 1px solid #213f9ab8;
 }
 
 #customer-avatar {
@@ -117,10 +118,11 @@
 #message-composer input {
   grid-area: 1 / 1 / 2 / 5;
   margin: 1vh 0.5vw;
-  height: 3vh;
+  height: 4vh;
   border-radius: 5px;
   border: 1px solid darkgray;
   padding-left: 10px;
+  font-size: large;
 }
 
 #message-composer button {
@@ -131,6 +133,7 @@
   color: white;
   font-weight: bolder;
   border: 1px solid darkgrey;
+  font-size: large;
 }
 
 #message-thread {
@@ -234,6 +237,7 @@
   padding: 0.5vh 1.5vw 0.5vh 1.5vw;
   height: 7vh;
   transition: background-color ease-out 100ms;
+  border-bottom: 1px solid rgba(211, 211, 211, 0.465);
 }
 
 #preview-container:hover {
@@ -364,4 +368,17 @@
 
 #dark-mode-button-container {
   margin: auto;
+}
+
+#sentiment-filter {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+}
+
+.dark-mode #sentiment-filter {
+  background-color: #121212
 }

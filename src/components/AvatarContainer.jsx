@@ -7,7 +7,7 @@ export function AvatarContainer({ talkingTo }) {
     <div id="avatar-container">
       <div id="customer-avatar">
         <Avatar sx={{ bgcolor: theme.palette.primary.main }}>
-          {talkingTo ? talkingTo[0] : ''}
+          {talkingTo ? talkingTo[0].toUpperCase() : ''}
         </Avatar>
         <h1>{talkingTo}</h1>
       </div>
