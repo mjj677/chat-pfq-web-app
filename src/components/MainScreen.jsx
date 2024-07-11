@@ -51,7 +51,6 @@ export const MainScreen = ({ username, setUsername, socket }) => {
     const getAllUsers = async () => {
       try {
         const users = await getRequest("users");
-        console.log(users, "<<<<< USERS");
         setTotalUsers(users.length);
       } catch (err) {
         console.log("Error:", err);
@@ -168,50 +167,3 @@ export const MainScreen = ({ username, setUsername, socket }) => {
     </div>
   );
 };
-
-
-/*
-
- <div className={`parent ${darkMode ? "dark-mode" : ""}`}>
-      <div id="column-1">
-        <Sidebar
-          setUsername={setUsername}
-          showDashboard={showDashboard}
-          setShowDashboard={setShowDashboard}
-        />
-      </div>
-      {!showDashboard ? (
-        <>
-          <div id="column-2">
-            <CategoryButtons
-              handleClick={handleClick}
-              category={category}
-              allCategories={allCategories}
-              loading={loading}
-            />
-          </div>
-          <PreviewsView
-            nonAdminMessages={nonAdminMessages}
-            setTalkingTo={setTalkingTo}
-            category={category}
-            talkingTo={talkingTo}
-            loading={loading}
-          />
-          {talkingTo !== "" ? (
-            <MessageView
-              talkingTo={talkingTo}
-              body={body}
-              sendMessage={sendMessage}
-              conversationMessages={conversationMessages}
-              setBody={setBody}
-            />
-          ) : (
-            <NoMessageView />
-          )}
-        </>
-      ) : (
-        <MetricsDashboard allMessages={everyMessage} totalUsers={totalUsers} />
-      )}
-    </div>
-
-    */

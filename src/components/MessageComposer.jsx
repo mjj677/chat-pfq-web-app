@@ -1,6 +1,7 @@
 export function MessageComposer({sendMessage, body, setBody}) {
     return <form id='message-composer'>
     <input
+      id="message-input"
       placeholder="Message"
       onChange={(e) => {
         setBody(e.target.value);
